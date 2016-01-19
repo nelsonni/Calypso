@@ -1,0 +1,44 @@
+<idea-plugin version="2">
+  <id>edu.oregonstate.cope.Calypso</id>
+  <name>Calypso</name>
+  <version>0.1.0</version>
+  <vendor email="cope@eecs.oregonstate.edu" url="http://cope.eecs.oregonstate.edu">Oregon State University</vendor>
+
+  <description><![CDATA[
+      IntelliJ IDEA plugin that records fine-grained code change events within the IDE.
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="141.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceInterface="edu.oregonstate.cope.CalypsoApplicationService"
+                        serviceImplementation="edu.oregonstate.cope.CalypsoApplicationService"/>
+    <applicationService serviceInterface="edu.oregonstate.cope.settings.PersistentSettings"
+                        serviceImplementation="edu.oregonstate.cope.settings.PersistentSettings"/>
+    <applicationConfigurable instance="edu.oregonstate.cope.settings.SettingsConfigurable"/>
+  </extensions>
+
+  <project-components>
+    <component>
+      <implementation-class>edu.oregonstate.cope.CalypsoProjectComponent</implementation-class>
+    </component>
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+</idea-plugin>
