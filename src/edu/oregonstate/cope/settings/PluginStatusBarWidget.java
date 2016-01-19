@@ -31,13 +31,13 @@ public class PluginStatusBarWidget implements StatusBarWidget, StatusBarWidget.I
 
         switch (status) {
             case FAULT:
-                return IconLoader.getIcon("resources/logo_fault.png");
+                return IconLoader.getIcon("icons/logo_fault.png");
             case ACTIVE:
-                return IconLoader.getIcon("resources/logo_active.png");
+                return IconLoader.getIcon("icons/logo_active.png");
             case INACTIVE:
                 // continue to default
             default:
-                return IconLoader.getIcon("resources/logo_inactive.png");
+                return IconLoader.getIcon("icons/logo_inactive.png");
         }
     }
 
