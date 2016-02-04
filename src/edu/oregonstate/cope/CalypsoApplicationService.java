@@ -7,6 +7,8 @@ import java.util.List;
  * Change-Oriented Programming Environment (COPE) project
  * URL: http://cope.eecs.oregonstate.edu/
  * Created by nelsonni on 1/18/16.
+ *
+ * Manages a list of active CalypsoProjectComponents to provide guaranteed communication of status changes
  */
 public class CalypsoApplicationService {
 

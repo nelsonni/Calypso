@@ -7,6 +7,6 @@ package edu.oregonstate.cope.settings;
  */
 public enum PluginStatus {
     ACTIVE,     // plugin is recording
-    INACTIVE,   // plugin is loaded, but not recording
+    INACTIVE,   // plugin is dormant
     FAULT       // plugin cannot activate/deactivate
 }

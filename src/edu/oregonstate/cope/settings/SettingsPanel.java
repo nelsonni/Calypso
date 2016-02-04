@@ -20,10 +20,10 @@ public class SettingsPanel {
     protected JSlider loggingLevelSlider;
     protected JComboBox<PluginStatus> pluginStatus;
     private JButton testConnection;
-    private JLabel userIDLabel;
     private JLabel loggingLevelLabel;
     private JLabel pluginStatusLabel;
     private JLabel serverUrlLabel;
+    private JLabel userIdLabel;
 
     public SettingsPanel() {
         pluginStatus.setModel(new DefaultComboBoxModel<>(PluginStatus.values()));
