@@ -5,6 +5,9 @@ import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.StatusBar;
 import com.intellij.openapi.wm.WindowManager;
+import com.intellij.psi.PsiManager;
+import edu.oregonstate.cope.listeners.PsiTreeListener;
+import edu.oregonstate.cope.settings.PersistentSettings;
 import edu.oregonstate.cope.settings.PluginStatusBarWidget;
 import org.jetbrains.annotations.NotNull;
 
@@ -18,19 +21,39 @@ public class CalypsoProjectComponent implements ProjectComponent {
     private Project project;
     private StatusBar statusBar;
     private PluginStatusBarWidget pluginStatusBarWidget;
+    private PsiTreeListener psiTreeListener;
 
     public CalypsoProjectComponent(@NotNull Project project) {
         this.project = project;
     }
 
-    public void refreshStatusBar() {
+    public void refreshComponentStatus() {
         statusBar.updateWidget(pluginStatusBarWidget.ID());
+
+        switch (PersistentSettings.getInstance().getPluginStatus()) {
+            case FAULT:
+                if (psiTreeListener != null) {
+                    PsiManager.getInstance(project).removePsiTreeChangeListener(psiTreeListener);
+                }
+                break;
+            case ACTIVE:
+                PsiManager.getInstance(project).addPsiTreeChangeListener(psiTreeListener = new PsiTreeListener());
+                break;
+            case INACTIVE:
+                // continue to default
+            default:
+                if (psiTreeListener != null) {
+                    PsiManager.getInstance(project).removePsiTreeChangeListener(psiTreeListener);
+                }
+                break;
+        }
     }
 
     @Override
     public void projectOpened() {
         statusBar = WindowManager.getInstance().getStatusBar(project);
         pluginStatusBarWidget = new PluginStatusBarWidget();
+        refreshComponentStatus();
 
         try {
             statusBar.addWidget(pluginStatusBarWidget);
@@ -42,6 +65,7 @@ public class CalypsoProjectComponent implements ProjectComponent {
 
     @Override
     public void projectClosed() {
+        refreshComponentStatus();
         statusBar.removeWidget(pluginStatusBarWidget.ID());
         ServiceManager.getService(CalypsoApplicationService.class).unregisterComponent(this);
     }

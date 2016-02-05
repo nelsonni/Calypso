@@ -8,7 +8,7 @@ import java.util.List;
  * URL: http://cope.eecs.oregonstate.edu/
  * Created by nelsonni on 1/18/16.
  *
- * Manages a list of active CalypsoProjectComponents to provide guaranteed communication of status changes
+ * Application service for all active CalypsoProjectComponents; provides guaranteed plugin status change communications
  */
 public class CalypsoApplicationService {
 
@@ -23,7 +23,7 @@ public class CalypsoApplicationService {
     }
 
     public void broadcastPluginStatusChange() {
-        projectComponents.forEach(CalypsoProjectComponent::refreshStatusBar);
+        projectComponents.forEach(CalypsoProjectComponent::refreshComponentStatus);
     }
 
 }

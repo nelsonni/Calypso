@@ -27,9 +27,7 @@ public class PluginStatusBarWidget implements StatusBarWidget, StatusBarWidget.I
     @NotNull
     @Override
     public Icon getIcon() {
-        PluginStatus status = PersistentSettings.getInstance().getPluginStatus();
-
-        switch (status) {
+        switch (PersistentSettings.getInstance().getPluginStatus()) {
             case FAULT:
                 return IconLoader.getIcon("icons/logo_fault.png");
             case ACTIVE:
