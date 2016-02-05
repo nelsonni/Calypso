@@ -10,15 +10,15 @@ import javax.swing.*;
  * URL: http://cope.eecs.oregonstate.edu/
  * Created by nelsonni on 12/30/15.
  */
-public class SettingsPanel {
+class SettingsPanel {
 
     private static final Logger LOG = Logger.getInstance(SettingsPanel.class);
 
     JPanel panel;
-    protected JTextField serverUrl;
-    protected JTextField userId;
-    protected JSlider loggingLevelSlider;
-    protected JComboBox<PluginStatus> pluginStatus;
+    JTextField serverUrl;
+    JTextField userId;
+    JSlider loggingLevelSlider;
+    JComboBox<PluginStatus> pluginStatus;
     private JButton testConnection;
     private JLabel loggingLevelLabel;
     private JLabel pluginStatusLabel;

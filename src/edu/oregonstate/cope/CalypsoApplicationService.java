@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class CalypsoApplicationService {
 
-    private List<CalypsoProjectComponent> projectComponents = new ArrayList<>();
+    private final List<CalypsoProjectComponent> projectComponents = new ArrayList<>();
 
     public void registerComponent(CalypsoProjectComponent component) {
         projectComponents.add(component);

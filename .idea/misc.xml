@@ -39,7 +39,9 @@
     </properties>
   </component>
   <component name="EntryPointsManager">
-    <entry_points version="2.0" />
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="edu.oregonstate.cope.settings.SettingsPanel panel" />
+    </entry_points>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />

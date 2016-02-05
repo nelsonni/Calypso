@@ -18,10 +18,10 @@ import com.intellij.util.xmlb.XmlSerializerUtil;
 
 public class PersistentSettings implements PersistentStateComponent<PersistentSettings> {
 
-    public PluginStatus pluginStatus = PluginStatus.ACTIVE;
-    public Integer loggingLevel = 2;
-    public String url = "http://localhost:3000/loopback/testPost";
-    public String userId;
+    private PluginStatus pluginStatus = PluginStatus.ACTIVE;
+    private Integer loggingLevel = 2;
+    private String url = "http://localhost:3000/loopback/testPost";
+    private String userId;
 
     public static PersistentSettings getInstance() { return ServiceManager.getService(PersistentSettings.class); }
 

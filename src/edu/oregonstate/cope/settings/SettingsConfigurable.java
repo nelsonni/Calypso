@@ -18,10 +18,10 @@ import javax.swing.*;
  *
  * Configuration interface for {@link PersistentSettings}.
  */
-public class SettingsConfigurable implements SearchableConfigurable {
+class SettingsConfigurable implements SearchableConfigurable {
 
-    protected PersistentSettings globalSettings;
-    protected SettingsPanel settingsPanel = null;
+    private final PersistentSettings globalSettings;
+    private SettingsPanel settingsPanel = null;
 
     public SettingsConfigurable() {
         globalSettings = PersistentSettings.getInstance();
